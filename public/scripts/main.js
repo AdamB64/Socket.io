@@ -17,5 +17,3 @@ socket.on('chat message', function(msg){
     window.scrollTo(0, document.body.scrollHeight);
 });
 
-
-// {user:$("#name").val(), message:message}
