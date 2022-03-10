@@ -26,6 +26,3 @@ io.on('connection', function (socket) {
     // add chat message handling code here
 
 });
-
-
-//       
