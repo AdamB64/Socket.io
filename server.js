@@ -11,7 +11,6 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
-    console.log('a user connected');
 });
 
 http.listen(8080, function(){
@@ -21,8 +20,12 @@ http.listen(8080, function(){
 io.on('connection', function (socket) {
     console.log('a user connected');
     // add disconnect code here
-    
+    socket.on('disconnect',function(){
+        console.log('user disconnected');
+    });
 
     // add chat message handling code here
-
+    socket.on('chat message',function(msg) {
+        io.emit('chat message',msg);
+    });
 });
