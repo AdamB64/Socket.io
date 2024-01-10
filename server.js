@@ -6,26 +6,26 @@ const io = require('socket.io')(http);
 app.use(express.static('public'))
 // set the view engine to ejs
 app.set('view engine', 'ejs');
-app.get('/', function(req, res){
+app.get('/', function (req, res) {
     res.render('pages/index');
 });
 
-io.on('connection', function(socket){
+io.on('connection', function (socket) {
 });
 
-http.listen(8080, function(){
+http.listen(8080, function () {
     console.log('listening on *:8080');
 })
 
 io.on('connection', function (socket) {
     console.log('a user connected');
     // add disconnect code here
-    socket.on('disconnect',function(){
+    socket.on('disconnect', function () {
         console.log('user disconnected');
     });
 
     // add chat message handling code here
-    socket.on('chat message',function(msg) {
-        io.emit('chat message',msg);
+    socket.on('chat message', function (msg) {
+        io.emit('chat message', msg);
     });
 });
